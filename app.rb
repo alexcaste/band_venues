@@ -68,3 +68,12 @@ delete '/band/delete/:id' do
   band.venues.delete(venue)
   redirect '/band/'.concat(band_id.to_s)
 end
+
+post '/add_venue/:id' do
+  venue_name = params.fetch('venue_name')
+  band_id = params.fetch('id')
+  band = Band.find(band_id)
+  venue = Venue.create(venue_name: venue_name)
+  band.venues.push(venue)
+  redirect '/band/'.concat(band_id.to_s)
+end

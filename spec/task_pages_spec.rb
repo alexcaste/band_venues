@@ -53,3 +53,14 @@ describe 'deleting a venue from a band', :type => :feature do
     expect(page).to have_content("This artist is not currently booked")
   end
 end
+
+describe 'add new venue to band', :type => :feature do
+  it 'allows user to add a completely new venue and auto assign to band' do
+    john_digweed = Band.create({band_name: "John Digweed"})
+    visit '/'
+    click_link 'John Digweed'
+    fill_in 'Venue Name', with: 'The Mighty'
+    click_button 'add_venue'
+    expect(page).to have_content('The Mighty')
+  end
+end
