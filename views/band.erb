@@ -1,0 +1,51 @@
+<h1><%= @band.band_name %></h1>
+
+<a href="/" class="btn btn-block btn-xs btn-info"><span class="glyphicon glyphicon-home"></span> Home</a>
+<hr>
+<% if @band.venues.any? %>
+  <h5><%= @band.band_name %> is currently booked at the following venues:</h5>
+  <ul>
+    <% @band_venues.uniq.each do |venue| %>
+      <li><%= venue.venue_name %>
+        <span class = "btn-group inline">
+          <form action = "/band/delete/<%= venue.id %>" method = "post">
+            <input name ="band" type ="hidden" value ="<%= @band.id %>">
+            <input name ="_method" type ="hidden" value ="delete">
+            <button id  = "remove_venue" type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
+            </button>
+          </form>
+        </span>
+        <p></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h5>This artist is not currently booked at any venues.  Please book this artist at a venue.</h5>
+<% end %>
+<br>
+<% if @venues.any? %>
+  <h5>Select all venues to book <%= @band.band_name %> at:</h5>
+    <form action="/band/<%= @band.id %>" method="post">
+      <input name ="_method" type ="hidden" value ="patch">
+      <% @venues.each do |venue| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="venue_ids[]" value="<%= venue.id %>"><%= venue.venue_name %>
+          </label>
+        </div>
+      <% end %>
+      <% end %>
+    <button id = "assign_venue" type="submit" class="btn btn-xs btn-success">Add</button>
+    </form>
+
+<hr>
+<br>
+<h5>Book <%= @band.band_name %> at a new venue:</h5>
+<div class="form group">
+  <p><form action="/add_venue/<%= @band.id %>" method="post">
+    <input id="venue_name" name="venue_name" placeholder="Venue Name">
+    <button id = "add_venue" type="submit" class="btn btn-xs btn-success">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </form></p>
+</div>
