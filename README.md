@@ -1,4 +1,4 @@
-<TITLE>
+TITLE
 
 By Alexandar Castaneda
 
@@ -8,9 +8,9 @@ GNU General Public License, version 3 (see below). Copyright (c) 2015 Alexandar 
 
 Description
 
-<TITLE>
+TITLE
 
-<DESCRIPTION>
+DESCRIPTION
 
 Author
 
@@ -22,7 +22,7 @@ This app was written in ruby '2.0.0'.
 
 Clone this repo with
 
-<GITHUB LINK>
+GITHUB LINK
 
 Install and run: bundle install ruby app.rb
 
