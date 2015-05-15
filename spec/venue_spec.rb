@@ -6,7 +6,7 @@ end
 
 describe('#venue_validation') do
   it("returns false if the venue name is unfilled") do
-    avalon = Venue.create({venue_name: "The Forum"})
+    avalon = Venue.create({venue_name: "Avalon"})
     exchangela = Venue.create({venue_name: "exchangela".*(70)})
     the_whiskey_bar = Venue.create({})
     expect(avalon.save).to(eq(true))

@@ -24,14 +24,14 @@ end
 
 delete '/band/:id' do
   band_id = params.fetch('id')
-  band = Band.find(id)
+  band = Band.find(band_id)
   band.delete
   redirect'/'
 end
 
 delete '/venue/:id' do
   venue_id = params.fetch('id')
-  venue = Venue.find(id)
+  venue = Venue.find(venue_id)
   venue.delete
   redirect'/'
 end
