@@ -35,3 +35,27 @@ delete '/venue/:id' do
   venue.delete
   redirect'/'
 end
+
+get '/band/:id' do
+  @band = Band.find(params.fetch('id'))
+  @venues = Venue.all
+  @all_band_venues = @band.venues
+  @band_venues = @all_band_venues.order(:venue_name)
+  erb(:band)
+end
+
+patch '/band/:id' do
+  venues=[]
+  band_id = params.fetch('id')
+  band = Band.find(band_id)
+  if params[:venue_ids]
+    venues = params.fetch("venue_ids")
+    venues.each do |venue|
+      if venue.to_i != 0
+        venue = Venue.find(venue.to_i)
+        band.venues.push(venue)
+      end
+    end
+    redirect '/band/'.concat(band_id.to_s)
+  end
+end

@@ -7,7 +7,7 @@
         <span class = "btn-group inline">
           <form action = "/band/<%= band.id %>" method = "post">
             <input name ="_method" type ="hidden" value ="delete">
-            <button id = "delete_band" type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
+            <button id  = "delete_band" type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
             </button>
           </form>
         </span>
@@ -15,6 +15,7 @@
       </li>
     <% end %>
   </ol>
+  <h6>Click on an artist to edit.</h6>
 <% else %>
   <h5>There are no artists worth knowing at this time.  Please add one.</h5>
 <% end %>
@@ -27,7 +28,7 @@
     </button>
   </form></p>
 </div>
-
+<hr>
 <% if @venues.any? %>
   <h5>Venues:</h5>
 
@@ -38,7 +39,7 @@
         <span class = "btn-group inline">
           <form action = "/venue/<%= venue.id %>" method = "post">
             <input name ="_method" type ="hidden" value ="delete">
-            <button name = "venue_delete" type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
+            <button id = "delete_venue" type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
             </button>
           </form>
         </span>
@@ -46,6 +47,7 @@
       </li>
     <% end %>
   </ol>
+  <h6>Click on a venue to edit.</h6>
 <% else %>
   <h5>There are no good venues at this time.  Please add one.</h5>
 <% end %>
@@ -54,7 +56,7 @@
   <p><form action="/add_venue" method="post">
     <input id="venue_name" name="venue_name" placeholder="Add Venue">
     <button type="submit" class="btn btn-xs btn-success">
-      <span class="glyphicon glyphicon-plus"></span>
+      <span class="glyphicon glyphicon-plus"></span> Add
     </button>
   </form></p>
 </div>
