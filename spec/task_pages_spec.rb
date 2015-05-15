@@ -64,3 +64,14 @@ describe 'add new venue to band', :type => :feature do
     expect(page).to have_content('The Mighty')
   end
 end
+
+describe 'edit band name', :type => :feature do
+  it 'allows user to edit band name' do
+    john_digweed = Band.create({band_name: "John Digweed"})
+    visit '/'
+    click_link 'John Digweed'
+    fill_in 'edit_name', with: 'Markus Schulz'
+    click_button 'edit_name'
+    expect(page).to have_content('Markus Schulz')
+  end
+end

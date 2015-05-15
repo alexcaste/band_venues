@@ -2,6 +2,16 @@
 
 <a href="/" class="btn btn-block btn-xs btn-info"><span class="glyphicon glyphicon-home"></span> Home</a>
 <hr>
+<div class="form group">
+  <p><form action="/edit/<%= @band.id %>" method="post">
+    <input name ="_method" type ="hidden" value ="patch">
+    <input id="edit_name" name="edit_name" placeholder="Edit Name">
+    <button id = "edit_name" type="submit" class="btn btn-xs btn-info">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </form></p>
+</div>
+<hr>
 <% if @band.venues.any? %>
   <h5><%= @band.band_name %> is currently booked at the following venues:</h5>
   <ul>
