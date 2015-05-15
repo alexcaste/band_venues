@@ -1,0 +1,60 @@
+<h1>Bands + Venues</h1>
+<% if @bands.any? %>
+  <h5>Here are all the bands we know:</h5>
+  <ol>
+    <% @bands.uniq.each  do |band| %>
+      <li><a href ="/band/<%= band.id %>"><%= band.band_name %></a>
+        <span class = "btn-group inline">
+          <form action = "/band/<%= band.id %>" method = "post">
+            <input name ="_method" type ="hidden" value ="delete">
+            <button type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
+            </button>
+          </form>
+        </span>
+        <p></p>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h5>There are no bands worth knowing at this time.</h5>
+<% end %>
+<br>
+<div class="form group">
+  <p><form action="/add_band" method="post">
+    <input id="band_name" name="band_name" placeholder="Add Band">
+    <button type="submit" class="btn btn-xs btn-success">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </form></p>
+</div>
+
+<% if @venues.any? %>
+  <h5>Here are all the venues we know:</h5>
+
+  <ol>
+    <% @venues.uniq.each  do |venue| %>
+
+      <li><a href ="/venue/<%= venue.id %>"><%= venue.venue_name %></a>
+        <span class = "btn-group inline">
+          <form action = "/venue/<%= venue.id %>" method = "post">
+            <input name ="_method" type ="hidden" value ="delete">
+            <button type = "submit" class="btn btn-xs btn-danger glyphicon glyphicon-remove">
+            </button>
+          </form>
+        </span>
+        <p></p>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h5>There are no venues worth knowing at this time.</h5>
+<% end %>
+<br>
+<div class="form group">
+  <p><form action="/add_venue" method="post">
+    <input id="venue_name" name="venue_name" placeholder="Add Venue">
+    <button type="submit" class="btn btn-xs btn-success">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </form></p>
+</div>

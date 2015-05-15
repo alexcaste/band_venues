@@ -17,23 +17,19 @@ ActiveRecord::Schema.define(version: 20150515033056) do
   enable_extension "plpgsql"
 
   create_table "bands", force: :cascade do |t|
-    t.string   "band_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "band_name"
   end
 
-  create_table "concerts", id: false, force: :cascade do |t|
+  create_table "bands_venues", id: false, force: :cascade do |t|
     t.integer "band_id"
     t.integer "venue_id"
   end
 
-  add_index "concerts", ["band_id"], name: "index_concerts_on_band_id", using: :btree
-  add_index "concerts", ["venue_id"], name: "index_concerts_on_venue_id", using: :btree
+  add_index "bands_venues", ["band_id"], name: "index_bands_venues_on_band_id", using: :btree
+  add_index "bands_venues", ["venue_id"], name: "index_bands_venues_on_venue_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
-    t.string   "venue_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "venue_name"
   end
 
 end
