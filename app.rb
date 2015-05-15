@@ -59,3 +59,12 @@ patch '/band/:id' do
     redirect '/band/'.concat(band_id.to_s)
   end
 end
+
+delete '/band/delete/:id' do
+  venue_id = params.fetch('id')
+  band_id = params.fetch('band').to_i
+  venue = Venue.find(venue_id)
+  band = Band.find(band_id)
+  band.venues.delete(venue)
+  redirect '/band/'.concat(band_id.to_s)
+end
