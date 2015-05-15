@@ -1,4 +1,4 @@
-TITLE
+Band + Venues
 
 By Alexandar Castaneda
 
@@ -8,9 +8,9 @@ GNU General Public License, version 3 (see below). Copyright (c) 2015 Alexandar 
 
 Description
 
-TITLE
+Band + Venues
 
-DESCRIPTION
+This app allows user to add venues and bands/artists.  User can track what venues band has played at.  User can add, delete and edit band and venue info.
 
 Author
 
@@ -22,7 +22,7 @@ This app was written in ruby '2.0.0'.
 
 Clone this repo with
 
-GITHUB LINK
+https://github.com/alexcaste/band_venues.git
 
 Install and run: bundle install ruby app.rb
 
