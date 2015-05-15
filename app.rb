@@ -78,10 +78,26 @@ post '/add_venue/:id' do
   redirect '/band/'.concat(band_id.to_s)
 end
 
-patch '/edit/:id' do
+patch '/band/edit/:id' do
   band_name = params.fetch('edit_name')
   band_id = params.fetch('id')
   band = Band.find(band_id)
   band.update(band_name: band_name)
 redirect '/band/'.concat(band_id.to_s)
+end
+
+patch '/venue/edit' do
+  venue_name = params.fetch('edit_name')
+  venue_id = params.fetch('venue_edit').to_i
+  venue = Venue.find(venue_id)
+  venue.update(venue_name: venue_name)
+  redirect '/'
+end
+
+patch '/band/' do
+  band_name = params.fetch('new_band_name')
+  band_id = params.fetch('band_id')
+  band = Band.find(band_id)
+  band.update(band_name: band_name)
+redirect '/'
 end

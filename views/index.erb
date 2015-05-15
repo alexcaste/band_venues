@@ -22,12 +22,29 @@
 <br>
 <div class="form group">
   <p><form action="/add_band" method="post">
-    <input id="band_name" name="band_name" placeholder="Add Band">
+    <input id="band_name" name="band_name" placeholder="Add New Band">
     <button type="submit" class="btn btn-xs btn-success">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
   </form></p>
 </div>
+<br>
+
+<form action="/band/" method="post">
+  <input name ="_method" type ="hidden" value ="patch">
+    <select id="band_id" name="band_id" >
+      <% @bands.each do |band| %>
+        <option value="<%= band.id %>"><%= band.band_name %></option>
+      <% end %>
+    </select>
+  &nbsp;&nbsp;
+  <input id="new_band_name" name="new_band_name" placeholder="Edit Band Name">
+  <button id = "new_band_name" type="submit" class="btn btn-xs btn-info">
+      <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</form>
+
+
 <hr>
 <% if @venues.any? %>
   <h5>Venues:</h5>
@@ -54,9 +71,24 @@
 <br>
 <div class="form group">
   <p><form action="/add_venue" method="post">
-    <input id="venue_name" name="venue_name" placeholder="Add Venue">
+    <input id="venue_name" name="venue_name" placeholder="Add New Venue">
     <button type="submit" class="btn btn-xs btn-success">
-      <span class="glyphicon glyphicon-plus"></span> Add
+      <span class="glyphicon glyphicon-plus"></span>
     </button>
   </form></p>
 </div>
+<br>
+
+<form action="/venue/edit" method="post">
+  <input name ="_method" type ="hidden" value ="patch">
+    <select id="venue_edit" name="venue_edit" >
+      <% @venues.each do |venue| %>
+        <option value="<%= venue.id %>"><%= venue.venue_name %></option>
+      <% end %>
+    </select>
+  &nbsp;&nbsp;
+  <input id="edit_name" name="edit_name" placeholder="Edit Venue Name">
+  <button id = "edit_name" type="submit" class="btn btn-xs btn-info">
+      <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</form>

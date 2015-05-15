@@ -3,7 +3,7 @@
 <a href="/" class="btn btn-block btn-xs btn-info"><span class="glyphicon glyphicon-home"></span> Home</a>
 <hr>
 <div class="form group">
-  <p><form action="/edit/<%= @band.id %>" method="post">
+  <p><form action="/band/edit/<%= @band.id %>" method="post">
     <input name ="_method" type ="hidden" value ="patch">
     <input id="edit_name" name="edit_name" placeholder="Edit Name">
     <button id = "edit_name" type="submit" class="btn btn-xs btn-info">
@@ -13,7 +13,7 @@
 </div>
 <hr>
 <% if @band.venues.any? %>
-  <h5><%= @band.band_name %> is currently booked at the following venues:</h5>
+  <h5><%= @band.band_name %> has played at the following venues:</h5>
   <ul>
     <% @band_venues.uniq.each do |venue| %>
       <li><%= venue.venue_name %>
@@ -30,7 +30,7 @@
     <% end %>
   </ul>
 <% else %>
-  <h5>This artist is not currently booked at any venues.  Please book this artist at a venue.</h5>
+  <h5>This artist has not yet played at any venues.&nbsp;&nbsp;Please add any venue <%= @band.band_name %> has played at.</h5>
 <% end %>
 <br>
 <% if @venues.any? %>
