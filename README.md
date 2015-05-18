@@ -8,7 +8,7 @@ GNU General Public License, version 3 (see below). Copyright (c) 2015 Alexandar 
 
 Description
 
-Band + Venues
+Bands + Venues
 
 This app allows user to add venues and bands/artists.  User can track what venues band has played at.  User can add, delete and edit band and venue info.
 
@@ -24,8 +24,21 @@ Clone this repo with
 
 https://github.com/alexcaste/band_venues.git
 
-Install and run: bundle install ruby app.rb
+Install and run: $ bundle
 
+Start the database in another terminal bash: $ postgres
+
+Create the databases and tables by changing directories into your new tracker-master folder then in the terminal run the following:
+
+$ rake db:create
+
+$ rake db:schema:load
+
+Start the webserver:
+
+$ ruby app.rb
+
+In your web browser, go to http://localhost:4567
 
 License Copyright (C) 2015 Alexandar Castaneda
 
