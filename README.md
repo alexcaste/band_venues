@@ -10,7 +10,7 @@ Description
 
 Bands + Venues
 
-This app allows user to add venues and bands/artists.  User can track what venues band has played at.  User can add, delete and edit band and venue info.
+This app allows user to add venues and bands/artists.  User can track what venues band has played at.  User can add, delete and edit band and venue info.  This was a assesment test.
 
 Author
 
